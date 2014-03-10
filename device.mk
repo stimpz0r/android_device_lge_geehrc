@@ -14,29 +14,15 @@
 # limitations under the License.
 #
 
-# This file includes all definitions that apply to ALL geehrc devices, and
-# are also specific to gee devices
+# This file includes all definitions that apply to ALL gee devices
 #
 # Everything in this directory will become public
 
-## (2) Also get non-open-source specific aspects if available
+# get non-open-source specific aspects if available
 $(call inherit-product, vendor/lge/gee/gee-vendor.mk)
 
-## overlays
-DEVICE_PACKAGE_OVERLAYS += device/lge/geehrc/overlay
-
-## common overlays
+# common overlays
 DEVICE_PACKAGE_OVERLAYS += device/lge/gee-common/overlay
 
 # Inherit from gee-common
 $(call inherit-product, device/lge/gee-common/gee-common.mk)
-
-#NFC firmware
-PRODUCT_COPY_FILES += \
-    device/lge/geehrc/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so
-
-# Telephony Properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    telephony.lteOnCdmaDevice=1 \
-    ro.telephony.default_network=9 \
-    ro.ril.def.preferred.network=9
